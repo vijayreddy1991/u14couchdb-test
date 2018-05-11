@@ -1,0 +1,17 @@
+language: none
+
+services:
+   - couchdb
+
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u14all
+    image_tag: master
+    pull: true
+    
+    
+  ci:
+    - service couchdb start
+    - sleep 5
+    - curl http://127.0.0.1:5984
